@@ -21,3 +21,17 @@ const getRandomDog = () => {
     .then((result) => result.message)
     return str;
 }
+
+/*  3.- Declara una función getAllImagesByBreed que obtenga todas las imágenes de una raza. */
+const getAllImagesByBreed = () => {
+  let arrImage = fetch(`https://dog.ceo/api/breed/komondor/images`)
+    .then((res) => res.json())
+    .then((result) => {
+      let images = [];
+      for (let img of result['message']) {
+        images.push(img);
+      }
+      return images.join('');
+    });
+  return arrImage;
+}
