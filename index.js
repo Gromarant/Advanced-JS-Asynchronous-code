@@ -58,6 +58,7 @@ const getGitHubUserProfile = (username) => {
   return profile;
 }
 
+/*  6.- Declara una función printGithubUserProfile(username) que reciba como argumento el nombre de un usuario (username), retorne {img, name} y pinte la foto y el nombre en el DOM. */
 const printGithubUserProfile = (username) => {
   let profileCard = fetch(`https://api.github.com/users/${username}`)
     .then((res) => res.json())
