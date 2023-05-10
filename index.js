@@ -79,3 +79,19 @@ const printGithubUserProfile = (username) => {
       });
   return profileCard;
 }
+
+/* 7. Crea una función getAndPrintGitHubUserProfile(username) que contenga una petición a la API para obtener información de ese usuario y devuelva un string que represente una tarjeta HTML como en el ejemplo, la estructura debe ser exactamente la misma:*/
+const getAndPrintGitHubUserProfile = (username) => {
+  let profileCard = fetch(`https://api.github.com/users/${username}`)
+    .then((res) => res.json())
+    .then((result) => {
+      let {avatar_url:img, name, public_repos} = result;
+      return document.querySelector('main').innerHTML += 
+      `<section>
+        <img src=${img} alt="imagen de usuario">
+        <h1>${name}</h1>
+        <p>Public repos: ${public_repos}</p>
+      </section>`
+    });
+  return profileCard;
+}
