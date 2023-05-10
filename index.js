@@ -49,3 +49,11 @@ const getAllImagesByBreed2 = (breed) => {
     });
   return arrImage;
 }
+
+/*  5.- Declarara una función getGitHubUserProfile(username) que obtenga el perfil de usuario de github a partir de su nombre de usuario. (https://api.github.com/users/{username}).*/
+const getGitHubUserProfile = (username) => {
+  let profile = fetch(`https://api.github.com/users/${username}`)
+    .then((res) => res.json())
+    .then((result) => result);
+  return profile;
+}
