@@ -13,3 +13,11 @@ const getAllBreeds = () => {
     });
   return arr;
 };
+
+/* 2.- Declara una función getRandomDog que obtenga una imagen random de una raza. */
+const getRandomDog = () => {
+  let str = fetch('https://dog.ceo/api/breeds/image/random')
+    .then(res=>res.json())
+    .then((result) => result.message)
+    return str;
+}
