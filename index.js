@@ -57,3 +57,24 @@ const getGitHubUserProfile = (username) => {
     .then((result) => result);
   return profile;
 }
+
+const printGithubUserProfile = (username) => {
+  let profileCard = fetch(`https://api.github.com/users/${username}`)
+    .then((res) => res.json())
+    .then((result) => {
+        let {avatar_url:img, name} = result;
+        const main = document.createElement('main');
+        document.querySelector('body').appendChild(main);
+
+        let card = document.createElement('article');
+        let image = document.createElement('img');
+        image.setAttribute('src', img);
+        let title = document.createElement('h2');
+        title.innerHTML = `${name}`
+        card.appendChild(image);
+        card.appendChild(title);
+        
+        main.appendChild(card);
+      });
+  return profileCard;
+}
