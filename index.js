@@ -35,3 +35,17 @@ const getAllImagesByBreed = () => {
     });
   return arrImage;
 }
+
+/* 4.- Declara una funcion getAllImagesByBreed2(breed) que devuelva las imágenes de la raza pasada por el argumento */
+const getAllImagesByBreed2 = (breed) => {
+  let arrImage = fetch(`https://dog.ceo/api/breed/${breed}/images`)
+    .then((res) => res.json())
+    .then((result) => {
+      let images = [];
+      for (let img of result['message']) {
+        images.push(img);
+      }
+      return images.join('');
+    });
+  return arrImage;
+}
