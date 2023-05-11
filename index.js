@@ -99,3 +99,13 @@ const getAndPrintGitHubUserProfile = (username) => {
     .catch(error => console.log(error))
 }
 
+/*  8.- Manipulación del DOM: Crea un input de tipo texto, y un botón buscar. El usuario escribirá en el input el nombre de usuario de GitHub que quiera buscar. Después llamaremos a la función getAndPrintGitHubUserProfile(username) que se ejecute cuando se pulse el botón buscar.(Esto no se testea). */
+const button = document.querySelector('button');
+const input = document.querySelector('#search');
+
+const handleClick = () => {
+  if (input.value.length > 0) { 
+    return getAndPrintGitHubUserProfile(input.value)
+  }
+}
+button.addEventListener('click', handleClick);
