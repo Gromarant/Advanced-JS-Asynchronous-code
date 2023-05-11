@@ -87,7 +87,7 @@ const getAndPrintGitHubUserProfile = (username) => {
     .then((result) => {
       return document.querySelector('main').innerHTML += 
       `<section>
-        <img src="${result.url_avatar}" alt="${result.name}">
+        <img src="${result["url_avatar"]}" alt="${result.name}">
         <h1>${result.name}</h1>
         <p>Public repos: ${result.public_repos}</p>
       </section>`
