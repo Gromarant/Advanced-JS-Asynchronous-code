@@ -90,15 +90,13 @@ const getAndPrintGitHubUserProfile = (username) => {
   let profileCard = fetch(`https://api.github.com/users/${username}`)
     .then(res => res.json())
     .then(result => {
-      let {avatar_url:img, name, public_repos} = result;
-      let card = `<section>
-        <img src="${img}" alt="imagen de usuario">
-        <h1>${name}</h1>
-        <p>Public repos: ${public_repos}</p>
+      let card = 
+      `<section>
+        <img src="${result["avatar_url"]}" alt="imagen de usuario">
+        <h1>${result.name}</h1>
+        <p>Public repos: ${result["public_repos"]}</p>
       </section>`
-  
-      document.querySelector('main').innerHTML += card
-      return card
+      return document.querySelector('main').appendChild(card);
     })
     .catch(error => console.log(error))
   return profileCard;
