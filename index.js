@@ -105,7 +105,8 @@ const input = document.querySelector('#search');
 
 const handleClick = () => {
   if (input.value.length > 0) { 
-    return getAndPrintGitHubUserProfile(input.value)
+    console.log(input.value)
+    getAndPrintGitHubUserProfile(input.value)
   }
 }
 button.addEventListener('click', handleClick);
